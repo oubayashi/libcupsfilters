@@ -68,6 +68,13 @@ void
     return out;
 }
 
+void
+*bannertopdf_param_gen(const char *output_mime)
+{
+    (void)output_mime;
+    return strdup("data");
+}
+
 // Define the filter mappings
 FilterMapping filter_mappings[] = {
     { "imagetoraster", cfFilterImageToRaster, NULL },
@@ -75,6 +82,7 @@ FilterMapping filter_mappings[] = {
     { "rastertopwg", cfFilterRasterToPWG, NULL },
     { "pwgtopdf", cfFilterPWGToPDF, NULL },
     { "pdftopdf", cfFilterPDFToPDF, NULL },
+    { "bannertopdf", cfFilterBannerToPDF, bannertopdf_param_gen },
     { "texttopdf", cfFilterTextToPDF, NULL },
     { "texttotext", cfFilterTextToText, NULL },
 };
